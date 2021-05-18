@@ -6,7 +6,7 @@ A frontend framework to component web UI with python
 
 . Define struct ⚠️
 
-. Gererating and parsing HTML [YatTag](https://www.yattag.org/) ⚠️
+. Gererating and parsing HTML [YatTag](https://www.yattag.org/)  [HTMLParse](https://docs.python.org/3/library/html.parser.html) ⚠️
 
 . Generating and parsing CSS [cssutils](https://pypi.org/project/cssutils/) ⚠️
 
