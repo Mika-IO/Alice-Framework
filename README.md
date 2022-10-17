@@ -2,6 +2,8 @@
 
 A frontend framework to component web UI with python
 
+https://www.youtube.com/watch?v=5MzOCxSWrrc&ab_channel=MarioSouto-DevSoutinho
+
 ## Todo
 
 . Define struct ⚠️
