@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="js/brython.min.js"></script>
+  </head>
+  <body onload="brython()">
+    <div id="root"></div>
+    <script type="text/python" src="alicepy/alice.py"></script>
+    <script type="text/python" src="components/another.py"></script>
+    <script type="text/python" src="app.py"></script>
+
+    <script type="text/python">
+      from app import counter
+
+      app = counter()
+      app.run()
+    </script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Minha SPA</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/registro">Registro</a></li>
+                <li><a href="/loja">Loja</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="conteudo"></div>
+
+    <script>
+        function carregarConteudo(url) {
+            const conteudoDiv = document.getElementById("conteudo");
+
+            if (url === "/") {
+                conteudoDiv.innerHTML = "<h1>Página inicial</h1>";
+            } else if (url === "/login") {
+                conteudoDiv.innerHTML = "<h1>Página de login</h1>";
+            } else if (url === "/registro") {
+                conteudoDiv.innerHTML = "<h1>Página de registro</h1>";
+            } else if (url === "/loja") {
+                conteudoDiv.innerHTML = "<h1>Página da loja</h1>";
+            } else {
+                conteudoDiv.innerHTML = "<h1>Página não encontrada</h1>";
+            }
+        }
+
+        window.addEventListener("popstate", function(event) {
+            const url = event.state ? event.state.url : window.location.pathname;
+            carregarConteudo(url);
+        });
+
+        document.addEventListener("click", function(event) {
+            if (event.target.tagName === "A" && event.target.getAttribute("href").startsWith("/")) {
+                event.preventDefault();
+                const url = event.target.getAttribute("href");
+                history.pushState({ url: url }, "", url);
+                carregarConteudo(url);
+            }
+        });
+
+        window.addEventListener("load", function() {
+            carregarConteudo(window.location.pathname);
+        });
+    </script>
+</body>
+</html>
