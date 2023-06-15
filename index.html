@@ -5,15 +5,12 @@
   </head>
   <body onload="brython()">
     <div id="root"></div>
-    <script type="text/python" src="alicepy/alice.py"></script>
-    <script type="text/python" src="components/another.py"></script>
     <script type="text/python" src="app.py"></script>
 
     <script type="text/python">
-      from app import counter
+      from app import app
 
-      app = counter()
-      app.run()
+      app()
     </script>
   </body>
 </html>

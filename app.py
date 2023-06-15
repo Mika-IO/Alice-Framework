@@ -1,29 +1,24 @@
 # app.py
 
-from alicepy.alice import Component
-from components.another import another_couter
+from alicepy.alice import Component, html
+from styles import couter_style
 
 
-def counter():
-    template = f"""
+def app():
+    template = html(
+        f"""
         <p>Counter: <span id="n">0</span></p>
         <button id="inc-btn">Increment</button>
-
-        {another_couter()}
-        {another_couter()}
-        {another_couter()}
+        <AnotherCouter />
     """
+    )
+
     states = {"n": 0}
-    style = """
-        p, button {
-            font-size: 30px;
-        }
-    """
 
-    counter = Component(template, states, style=style)
+    counter = Component(template, states, style=couter_style.style)
 
-    def increment(event):
-        return counter.set_state("n", counter.states["n"] + 1)
+    @counter.reactive("inc-btn")
+    def increment(self, event):
+        return self.set_state("n", self.states["n"] + 1)
 
-    counter.reactive("inc-btn", increment)
-    return counter
+    return counter.render()
